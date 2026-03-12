@@ -1,0 +1,127 @@
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Rajasthani warm palette */
+    --background: 0.975 0.018 85;
+    --foreground: 0.22 0.04 35;
+
+    --card: 0.985 0.012 80;
+    --card-foreground: 0.22 0.04 35;
+
+    --popover: 0.985 0.012 80;
+    --popover-foreground: 0.22 0.04 35;
+
+    /* Saffron orange primary */
+    --primary: 0.65 0.19 48;
+    --primary-foreground: 0.99 0.005 90;
+
+    /* Deep maroon secondary */
+    --secondary: 0.35 0.1 25;
+    --secondary-foreground: 0.99 0.005 90;
+
+    --muted: 0.94 0.025 80;
+    --muted-foreground: 0.5 0.04 40;
+
+    /* Golden accent */
+    --accent: 0.78 0.17 85;
+    --accent-foreground: 0.22 0.04 35;
+
+    --destructive: 0.55 0.22 15;
+    --destructive-foreground: 0.99 0.005 90;
+
+    --border: 0.88 0.04 75;
+    --input: 0.88 0.04 75;
+    --ring: 0.65 0.19 48;
+
+    --radius: 0.625rem;
+
+    --chart-1: 0.65 0.19 48;
+    --chart-2: 0.78 0.17 85;
+    --chart-3: 0.35 0.1 25;
+    --chart-4: 0.6 0.15 30;
+    --chart-5: 0.7 0.14 65;
+
+    --sidebar: 0.97 0.018 85;
+    --sidebar-foreground: 0.22 0.04 35;
+    --sidebar-primary: 0.65 0.19 48;
+    --sidebar-primary-foreground: 0.99 0.005 90;
+    --sidebar-accent: 0.94 0.025 80;
+    --sidebar-accent-foreground: 0.22 0.04 35;
+    --sidebar-border: 0.88 0.04 75;
+    --sidebar-ring: 0.65 0.19 48;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+.star-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 2px;
+  transition: transform 0.1s;
+}
+.star-btn:hover {
+  transform: scale(1.15);
+}
+
+.rajasthan-hero {
+  background-image: url("/assets/generated/rajasthan-header.dim_1200x300.jpg");
+  background-size: cover;
+  background-position: center 40%;
+  position: relative;
+}
+
+.rajasthan-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    oklch(0.15 0.06 30 / 0.55) 0%,
+    oklch(0.22 0.08 35 / 0.7) 100%
+  );
+}
+
+.rating-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: oklch(var(--muted));
+  overflow: hidden;
+}
+.rating-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(
+    to right,
+    oklch(var(--primary)),
+    oklch(var(--accent))
+  );
+  transition: width 0.6s ease;
+}
